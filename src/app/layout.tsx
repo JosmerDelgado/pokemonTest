@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Image from "next/image";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +18,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <header className="">
+          <div className="m-20 flex items-center">
+            <Link href={'/'}>
+              <Image
+                src={"/poke-logo.png"}
+                alt="Logo"
+                width={200}
+                height={100}
+              />
+            </Link>
+            <h1 className="text-5xl ml-9">Josmer Delgado Test</h1>
+          </div>
+        </header>
+        {children}
+      </body>
     </html>
   );
 }
